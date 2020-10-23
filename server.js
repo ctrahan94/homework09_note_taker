@@ -1,26 +1,28 @@
+const path = require("path");
 const express = require("express");
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-/*
-function displayHtml(res){
-   const code
-  res.set('Content-type', 'text/html');
-  res.status(404).send(code);
-  
-}
-*/
+// Sets up the Express app to handle data parsing
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-// Routes 
-// ======================================
+app.get("/", function( req, res){
+  res.json(path.join(__dirname, "public/index.html"));
+});
 
-// app.get("/", function(req, res){
-//   return displayHtml(res);
-// });
+
+
 
 // Listener
 // =====================================
 
-// app.listen(PORT, function(){
-//   console.log("App listening of PORT " + PORT);
-// });
+app.listen(PORT, function(){
+  console.log("App listening of PORT " + PORT);
+});
+
+
+
+
+
+//so in theory, you could do res.send(req.body.name) as a variable and then use that variable in an fs.writefile to send that info to lets say…a db.json
