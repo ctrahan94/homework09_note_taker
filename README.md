@@ -36,6 +36,18 @@ To run test run the following command:
 npm test
 '''
 
+## Home page
+![Home Page](assets/images/homepage.png)
+
+## Note page
+![Home Page](assets/images/notepage.png)
+
+## How the application works
+![Deployed](assets/images/deployed.gif)
+
+## Deployed site
+[Deployed site](https://mighty-ocean-77540.herokuapp.com/)
+
 ## Questions
 If you have any questions about the repo contact me directly at c.trahan94@yahoo.com.
 You can find more of my work at [ctrahan94](https://github.com/ctrahan94).
