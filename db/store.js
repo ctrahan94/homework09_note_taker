@@ -1,6 +1,6 @@
 const util = require("util");
 const fs = require("fs");
-const uuid = require("uuid");
+const { v4: uuidv4 } = require('uuid');
 
 const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
@@ -27,10 +27,10 @@ class Store {
     addNote(note) {
         const { title, text } = note;
         if (!title || !text) {
-            throw new Error(`You need to have a title and text!`)
+            throw new Error(`You can't have a blank note!`)
         }
 
-        const newNote = { title, text, id: uuid }
+        const newNote = { title, text, id: uuidv4() }
 
         return this.getNotes().then(notes => [...notes, newNote])
             .then(updatedNotes => this.write(updatedNotes))
